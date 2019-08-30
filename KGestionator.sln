@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{CBB229A7-F0E7-4B90-9F28-3A7AE63885B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application", "2. Application", "{E9001A4F-DE5E-4CD7-B07D-03B206D329E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{D9E7EFED-DC9E-4597-AEDE-DE985CABCFC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Infrastructure", "{EA3EC7CF-A86E-4AA2-BC02-C5632461F608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KGestionator.Application", "KGestionator.Application\KGestionator.Application.csproj", "{3EE238EB-168B-4598-8145-64C2394AAD14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KGestionator.Application.Implementation", "KGestionator.Application.Implementation\KGestionator.Application.Implementation.csproj", "{4A65664D-4284-4774-9DC1-F977C686CA9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KGestionator.Domain", "KGestionator.Domain\KGestionator.Domain.csproj", "{AFFECC37-7810-4103-A5A1-C39326E6F6E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EE238EB-168B-4598-8145-64C2394AAD14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE238EB-168B-4598-8145-64C2394AAD14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE238EB-168B-4598-8145-64C2394AAD14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE238EB-168B-4598-8145-64C2394AAD14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A65664D-4284-4774-9DC1-F977C686CA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A65664D-4284-4774-9DC1-F977C686CA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A65664D-4284-4774-9DC1-F977C686CA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A65664D-4284-4774-9DC1-F977C686CA9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFFECC37-7810-4103-A5A1-C39326E6F6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFECC37-7810-4103-A5A1-C39326E6F6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFECC37-7810-4103-A5A1-C39326E6F6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFECC37-7810-4103-A5A1-C39326E6F6E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3EE238EB-168B-4598-8145-64C2394AAD14} = {E9001A4F-DE5E-4CD7-B07D-03B206D329E1}
+		{4A65664D-4284-4774-9DC1-F977C686CA9A} = {E9001A4F-DE5E-4CD7-B07D-03B206D329E1}
+		{AFFECC37-7810-4103-A5A1-C39326E6F6E2} = {D9E7EFED-DC9E-4597-AEDE-DE985CABCFC8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96B32DA4-CF4D-4E5C-8F15-5AC61FD76D52}
+	EndGlobalSection
+EndGlobal
