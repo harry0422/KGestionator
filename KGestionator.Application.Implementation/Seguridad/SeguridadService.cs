@@ -1,4 +1,6 @@
 ﻿using KGestionator.Application.Cifrado;
+using KGestionator.Application.Implementation.Seguridad.Mappers;
+using KGestionator.Application.Logs;
 using KGestionator.Application.Seguridad;
 using KGestionator.Application.Seguridad.DTOs;
 using KGestionator.Domain.Planillas.Model;
@@ -14,54 +16,111 @@ namespace KGestionator.Application.Implementation.Seguridad
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IEmpleadoRepository _empleadoRepository;
         private readonly ICifradoAdapter _cifradoAdapter;
+        private readonly ILogsAdapter _logsAdapter;
 
-        public SeguridadService(IUsuarioRepository usuarioRepository, IEmpleadoRepository empleadoRepository, ICifradoAdapter cifradoAdapter)
+        public SeguridadService(IUsuarioRepository usuarioRepository, IEmpleadoRepository empleadoRepository, ICifradoAdapter cifradoAdapter, ILogsAdapter logsAdapter)
         {
             _usuarioRepository = usuarioRepository;
             _empleadoRepository = empleadoRepository;
             _cifradoAdapter = cifradoAdapter;
+            _logsAdapter = logsAdapter;
         }
 
-        public bool AgregarUsuario(UsuarioDto dto)
+        public void AgregarUsuario(UsuarioDto dto)
         {
-            //Validar que el empleado exista
-            Empleado empleado = _empleadoRepository.GetBy(dto.IdEmpleado);
-            if (empleado == null) throw new Exception("");
+            try
+            {
+                //Validar que el empleado exista
+                Empleado empleado = _empleadoRepository.GetBy(dto.IdEmpleado);
+                if (empleado == null) throw new Exception("Empleado no existe.");
 
-            //Validar que el usuario no exista
-            Usuario usuario = _usuarioRepository.Get(dto.Correo);
-            if (usuario != null) throw new Exception("");
+                //Validar que el usuario no exista
+                Usuario usuario = _usuarioRepository.Get(dto.Correo);
+                if (usuario != null) throw new Exception("Usuario ya existe.");
 
-            //Cifrar contraseña
-            string contraseñaCifrada = _cifradoAdapter.Cifrar(dto.Contraseña);
+                //Cifrar contraseña
+                string contraseñaCifrada = _cifradoAdapter.Cifrar(dto.Contraseña);
 
-            //Crear usuario
-            Usuario nuevoUsuario = new Usuario(dto.Correo, dto.Nombre, contraseñaCifrada, dto.IdEmpleado);
-            //Guardar usuario
-            _usuarioRepository.Insert(nuevoUsuario);
-            
-            //Guardar Log
-            throw new System.NotImplementedException();
+                //Crear usuario
+                Usuario nuevoUsuario = new Usuario(dto.Correo, dto.Nombre, contraseñaCifrada, dto.IdEmpleado);
+
+                //Guardar usuario
+                _usuarioRepository.Insert(nuevoUsuario);
+                _logsAdapter.GuardarMensaje("Guardado exitosamente.");
+            }
+            catch (Exception e)
+            {
+                _logsAdapter.GuardarError("Error al guardar usuario.", e);
+                throw new Exception("Error al guardar usuario.", e);
+            }
         }
 
-        public UsuarioAutenticadoDto Autenticar(CredencialesDto dto)
+        public UsuarioDto Autenticar(CredencialesDto dto)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                Usuario usuario = _usuarioRepository.GetBy(dto.Correo, dto.Contraseña);
+                if (usuario == null) throw new Exception("Correo o contraseña no son validos.");
+
+                return usuario.ToDto();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar autenticar al usuario.", e);
+            }
         }
 
         public UsuarioDto ConsultarUsuario(UsuarioDeConsultaDto dto)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _usuarioRepository.Get(dto.correo).ToDto();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al consultar usuario.", e);
+            }
         }
 
-        public bool DarBaja(UsuarioDeBajaDto dto)
+        public void DarBaja(UsuarioDeBajaDto dto)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                Usuario usuario = _usuarioRepository.Get(dto.Correo);
+                usuario.DarDeBaja();
+                _usuarioRepository.Update(usuario);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al intentar dar de baja al usuario.", e);
+            }
         }
 
-        public bool ModificarUsuario(UsuarioDto dto)
-        {
-            throw new System.NotImplementedException();
+        public void ModificarUsuario(UsuarioDto dto)
+        {            
+            try
+            {
+                //Obtener usuario
+                Usuario usuario = _usuarioRepository.Get(dto.Correo);
+                
+                //Validar que el usuario exista
+                if (usuario == null) throw new Exception("Usuario no existe.");
+                
+                //Asignar los nuevos datos
+                usuario.Nombre = dto.Nombre;
+                usuario.Correo = dto.Correo;
+                usuario.Contraseña = dto.Contraseña;
+
+                //Modificar el usuario
+                _usuarioRepository.Update(usuario);
+                _logsAdapter.GuardarMensaje("Usuario modificado exitosamente");
+            }
+            catch (Exception e)
+            {
+                _logsAdapter.GuardarError("Error al intentar modificar usuario", e);
+                throw new Exception("Error al intentar modificar usuario.", e);
+                //throw new UpdateUserException(ex);
+            }
         }
     }
 }

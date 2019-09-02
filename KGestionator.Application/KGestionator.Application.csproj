@@ -42,10 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cifrado\ICifradoAdapter.cs" />
+    <Compile Include="Logs\ILogsAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\DTOs\CredencialesDto.cs" />
     <Compile Include="Seguridad\DTOs\RolDto.cs" />
-    <Compile Include="Seguridad\DTOs\UsuarioAutenticadoDto.cs" />
     <Compile Include="Seguridad\DTOs\UsuarioDeBajaDto.cs" />
     <Compile Include="Seguridad\DTOs\UsuarioDeConsultaDto.cs" />
     <Compile Include="Seguridad\DTOs\UsuarioDto.cs" />

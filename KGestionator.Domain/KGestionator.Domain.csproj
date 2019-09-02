@@ -45,9 +45,9 @@
     <Compile Include="Estructura Organizacional\Model\Departamento.cs" />
     <Compile Include="Estructura Organizacional\Model\Empresa.cs" />
     <Compile Include="Estructura Organizacional\Model\Gerencia.cs" />
-    <Compile Include="Gestiones\Solicitud.cs" />
-    <Compile Include="Notificaciones\BandejaEntrada.cs" />
-    <Compile Include="Notificaciones\Publicacion.cs" />
+    <Compile Include="Gestiones\Model\Solicitud.cs" />
+    <Compile Include="Notificaciones\Model\BandejaEntrada.cs" />
+    <Compile Include="Notificaciones\Model\Publicacion.cs" />
     <Compile Include="Planillas\Model\BoletaPago.cs" />
     <Compile Include="Planillas\Model\Bono.cs" />
     <Compile Include="Planillas\Model\Empleado.cs" />
@@ -57,8 +57,8 @@
     <Compile Include="Seguridad\Model\Rol.cs" />
     <Compile Include="Seguridad\Model\Usuario.cs" />
     <Compile Include="Seguridad\Repositories\IUsuarioRepository.cs" />
-    <Compile Include="Sorteos\Premio.cs" />
-    <Compile Include="Sorteos\Sorteo.cs" />
+    <Compile Include="Sorteos\Model\Premio.cs" />
+    <Compile Include="Sorteos\Model\Sorteo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Estructura Organizacional\Repositories\" />
