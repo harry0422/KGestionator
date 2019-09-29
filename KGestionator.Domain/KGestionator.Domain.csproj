@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons\BusinessRule.cs" />
+    <Compile Include="Commons\EntityBase.cs" />
+    <Compile Include="Commons\Exceptions\ValueObjectIsInvalidException.cs" />
+    <Compile Include="Commons\IAggregateRoot.cs" />
+    <Compile Include="Commons\IRepository.cs" />
+    <Compile Include="Commons\ValueObjectBase.cs" />
     <Compile Include="Estructura Organizacional\Model\Area.cs" />
     <Compile Include="Estructura Organizacional\Model\Departamento.cs" />
     <Compile Include="Estructura Organizacional\Model\Empresa.cs" />
@@ -54,6 +60,7 @@
     <Compile Include="Planillas\Model\Planilla.cs" />
     <Compile Include="Planillas\Repositories\IEmpleadoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\Model\BusinessRules\UsuarioBusinessRules.cs" />
     <Compile Include="Seguridad\Model\Rol.cs" />
     <Compile Include="Seguridad\Model\Usuario.cs" />
     <Compile Include="Seguridad\Repositories\IUsuarioRepository.cs" />

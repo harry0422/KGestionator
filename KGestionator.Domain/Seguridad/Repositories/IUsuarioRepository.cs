@@ -1,12 +1,10 @@
-﻿using KGestionator.Domain.Seguridad.Model;
+﻿using KGestionator.Domain.Commons;
+using KGestionator.Domain.Seguridad.Model;
 
 namespace KGestionator.Domain.Seguridad.Repositories
 {
-    public interface IUsuarioRepository
+    public interface IUsuarioRepository : IRepository<Usuario, string>
     {
-        Usuario Get(string correo);
         Usuario GetBy(string correo, string contraseña);
-        void Insert(Usuario usuario);
-        void Update(Usuario usuario);
     }
 }

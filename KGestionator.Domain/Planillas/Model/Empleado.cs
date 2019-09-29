@@ -1,8 +1,9 @@
-﻿using System;
+﻿using KGestionator.Domain.Commons;
+using System;
 
 namespace KGestionator.Domain.Planillas.Model
 {
-    public class Empleado
+    public class Empleado : IAggregateRoot
     {
         public int IdEmpleado { get; set; }
         public string Identidad { get; set; }

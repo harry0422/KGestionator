@@ -1,9 +1,10 @@
-﻿using KGestionator.Domain.Planillas.Model;
+﻿using KGestionator.Domain.Commons;
+using KGestionator.Domain.Planillas.Model;
 
 namespace KGestionator.Domain.Planillas.Repositories
 {
-    public interface IEmpleadoRepository
+    public interface IEmpleadoRepository : IRepository<Empleado, string>
     {
-        Empleado GetBy(string idEmpleado);
+
     }
 }

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KGestionator.Application.Im
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KGestionator.Domain", "KGestionator.Domain\KGestionator.Domain.csproj", "{AFFECC37-7810-4103-A5A1-C39326E6F6E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KGestionator.Infrastructure.Repositories.NHibernate", "KGestionator.Infrastructure.Repositories.NHibernate\KGestionator.Infrastructure.Repositories.NHibernate.csproj", "{1D71C760-C9DE-46B9-B9A1-9BF0250EB8A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{AFFECC37-7810-4103-A5A1-C39326E6F6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFFECC37-7810-4103-A5A1-C39326E6F6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFFECC37-7810-4103-A5A1-C39326E6F6E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D71C760-C9DE-46B9-B9A1-9BF0250EB8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D71C760-C9DE-46B9-B9A1-9BF0250EB8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D71C760-C9DE-46B9-B9A1-9BF0250EB8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D71C760-C9DE-46B9-B9A1-9BF0250EB8A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{3EE238EB-168B-4598-8145-64C2394AAD14} = {E9001A4F-DE5E-4CD7-B07D-03B206D329E1}
 		{4A65664D-4284-4774-9DC1-F977C686CA9A} = {E9001A4F-DE5E-4CD7-B07D-03B206D329E1}
 		{AFFECC37-7810-4103-A5A1-C39326E6F6E2} = {D9E7EFED-DC9E-4597-AEDE-DE985CABCFC8}
+		{1D71C760-C9DE-46B9-B9A1-9BF0250EB8A8} = {EA3EC7CF-A86E-4AA2-BC02-C5632461F608}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96B32DA4-CF4D-4E5C-8F15-5AC61FD76D52}

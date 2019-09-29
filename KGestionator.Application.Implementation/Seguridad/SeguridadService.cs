@@ -31,7 +31,7 @@ namespace KGestionator.Application.Implementation.Seguridad
             try
             {
                 //Validar que el empleado exista
-                Empleado empleado = _empleadoRepository.GetBy(dto.IdEmpleado);
+                Empleado empleado = _empleadoRepository.Get(dto.IdEmpleado);
                 if (empleado == null) throw new Exception("Empleado no existe.");
 
                 //Validar que el usuario no exista
@@ -45,8 +45,15 @@ namespace KGestionator.Application.Implementation.Seguridad
                 Usuario nuevoUsuario = new Usuario(dto.Correo, dto.Nombre, contraseñaCifrada, dto.IdEmpleado);
 
                 //Guardar usuario
-                _usuarioRepository.Insert(nuevoUsuario);
-                _logsAdapter.GuardarMensaje("Guardado exitosamente.");
+                if (nuevoUsuario.IsValid)
+                {
+                    _usuarioRepository.Insert(nuevoUsuario);
+                    _logsAdapter.GuardarMensaje("Guardado exitosamente.");
+                }
+                else
+                {
+
+                }
             }
             catch (Exception e)
             {
